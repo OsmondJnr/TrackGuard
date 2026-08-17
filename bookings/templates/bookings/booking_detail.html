@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Booking {{ booking.booking_reference }}{% endblock %}
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-7">
+      <div class="card tg-card p-4">
+        <h3 class="fw-bold">Booking {{ booking.booking_reference }}</h3>
+        <span class="badge badge-status-{{ booking.status }} mb-3">{{ booking.get_status_display }}</span>
+        <table class="table">
+          <tr><th>Customer</th><td>{{ booking.customer.get_full_name|default:booking.customer.username }}</td></tr>
+          <tr><th>Service</th><td>{{ booking.service.name }} (₦{{ booking.service.price }})</td></tr>
+          <tr><th>Vehicle</th><td>{{ booking.vehicle.make }} {{ booking.vehicle.model }} &mdash; {{ booking.vehicle.registration_number }}</td></tr>
+          <tr><th>Date</th><td>{{ booking.slot.date }}</td></tr>
+          <tr><th>Time</th><td>{{ booking.slot.start_time|time:"H:i" }} - {{ booking.slot.end_time|time:"H:i" }}</td></tr>
+          <tr><th>Notes</th><td>{{ booking.notes|default:"—" }}</td></tr>
+          <tr><th>Created</th><td>{{ booking.created_at }}</td></tr>
+        </table>
+        {% if booking.is_active %}
+        <a href="{% url 'bookings:cancel_booking' booking.pk %}" class="btn btn-outline-danger">Cancel Booking</a>
+        {% endif %}
+        <a href="{% if user.is_staff %}{% url 'bookings:manage_bookings' %}{% else %}{% url 'bookings:my_bookings' %}{% endif %}" class="btn btn-outline-secondary mt-2">Back</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

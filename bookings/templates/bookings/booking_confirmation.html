@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Booking Confirmed{% endblock %}
+{% block content %}
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-7">
+      <div class="card tg-card p-4 text-center">
+        <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+        <h3 class="fw-bold mt-2">Booking Confirmed!</h3>
+        <p class="text-muted">Your appointment has been scheduled successfully.</p>
+        <h4 class="my-3">Reference: <span class="text-primary">{{ booking.booking_reference }}</span></h4>
+        <table class="table text-start">
+          <tr><th>Customer</th><td>{{ booking.customer.get_full_name|default:booking.customer.username }}</td></tr>
+          <tr><th>Vehicle</th><td>{{ booking.vehicle.make }} {{ booking.vehicle.model }} ({{ booking.vehicle.registration_number }})</td></tr>
+          <tr><th>Service</th><td>{{ booking.service.name }}</td></tr>
+          <tr><th>Date</th><td>{{ booking.slot.date }}</td></tr>
+          <tr><th>Time</th><td>{{ booking.slot.start_time|time:"H:i" }} - {{ booking.slot.end_time|time:"H:i" }}</td></tr>
+          <tr><th>Status</th><td><span class="badge badge-status-{{ booking.status }}">{{ booking.get_status_display }}</span></td></tr>
+        </table>
+        <a href="{% url 'bookings:my_bookings' %}" class="btn btn-accent">View My Bookings</a>
+        <a href="{% url 'bookings:dashboard' %}" class="btn btn-outline-secondary mt-2">Back to Dashboard</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Services{% endblock %}
+{% block content %}
+<div class="container my-5">
+  <h1 class="fw-bold mb-4 text-center">Our Installation Services</h1>
+  <div class="row g-4">
+    {% for service in services %}
+    <div class="col-md-4">
+      <div class="card tg-card h-100">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ service.name }}</h5>
+          <p class="card-text text-muted flex-grow-1">{{ service.description }}</p>
+          <p class="mb-1"><strong>Price:</strong> ₦{{ service.price }}</p>
+          <p class="mb-3"><strong>Duration:</strong> {{ service.estimated_duration_minutes }} minutes</p>
+          <a href="{% url 'bookings:book_step1_service' %}" class="btn btn-accent mt-auto">Book This Service</a>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p class="text-muted text-center">No services are currently available. Please check back soon.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

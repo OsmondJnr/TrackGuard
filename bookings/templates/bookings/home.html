@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="container text-center">
+    <h1 class="display-4">Secure Your Vehicle. Track Your Journey.</h1>
+    <p class="lead mt-3">Book professional GPS tracker installation in minutes. TrackGuard keeps your vehicle protected and always within reach.</p>
+    <a href="{% url 'bookings:book_step1_service' %}" class="btn btn-accent btn-lg mt-3 px-4">Book Installation</a>
+    <a href="{% url 'bookings:service_list' %}" class="btn btn-outline-light btn-lg mt-3 px-4 ms-2">View Services</a>
+  </div>
+</section>
+
+<section class="container my-5">
+  <h2 class="text-center mb-4 fw-bold">Why Choose TrackGuard?</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card tg-card h-100 p-3">
+        <div class="card-body text-center">
+          <i class="bi bi-clock-history fs-1 text-primary"></i>
+          <h5 class="mt-3">Flexible Scheduling</h5>
+          <p class="text-muted">Pick a date and time slot that works for you — book online in under two minutes.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card tg-card h-100 p-3">
+        <div class="card-body text-center">
+          <i class="bi bi-tools fs-1 text-primary"></i>
+          <h5 class="mt-3">Certified Technicians</h5>
+          <p class="text-muted">Every installation is performed by trained, certified GPS tracking specialists.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card tg-card h-100 p-3">
+        <div class="card-body text-center">
+          <i class="bi bi-shield-check fs-1 text-primary"></i>
+          <h5 class="mt-3">Real-Time Confirmation</h5>
+          <p class="text-muted">Get an instant booking reference and track the status of your appointment online.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if services %}
+<section class="container my-5">
+  <h2 class="text-center mb-4 fw-bold">Our Popular Services</h2>
+  <div class="row g-4">
+    {% for service in services %}
+    <div class="col-md-4">
+      <div class="card tg-card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ service.name }}</h5>
+          <p class="card-text text-muted">{{ service.description|truncatewords:20 }}</p>
+          <p class="fw-bold text-primary">₦{{ service.price }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% endblock %}

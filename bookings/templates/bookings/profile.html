@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}My Profile{% endblock %}
+{% block content %}
+<div class="container my-5">
+  <h1 class="fw-bold mb-4">My Profile</h1>
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="card tg-card p-4">
+        <h5>Account Details</h5>
+        <form method="post" novalidate>
+          {% csrf_token %}
+          {% for field in form %}
+          <div class="mb-3">
+            <label class="form-label">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}<div class="text-danger small">{{ field.errors|striptags }}</div>{% endif %}
+          </div>
+          {% endfor %}
+          <button type="submit" class="btn btn-accent">Save Changes</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card tg-card p-4">
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">My Vehicles</h5>
+          <a href="{% url 'bookings:add_vehicle' %}" class="btn btn-sm btn-outline-primary">Add Vehicle</a>
+        </div>
+        <ul class="list-group list-group-flush mt-3">
+          {% for v in vehicles %}
+          <li class="list-group-item">{{ v.make }} {{ v.model }} ({{ v.year }}) &mdash; {{ v.registration_number }}</li>
+          {% empty %}
+          <li class="list-group-item text-muted">No vehicles added yet.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

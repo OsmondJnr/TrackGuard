@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Book: Select Date{% endblock %}
+{% block content %}
+<div class="container my-5">
+  {% include "bookings/_book_steps.html" with step=2 %}
+  <h2 class="fw-bold mb-1">Step 2: Choose a Date</h2>
+  <p class="text-muted mb-4">Service: <strong>{{ service.name }}</strong></p>
+  <div class="row g-3">
+    {% for d in upcoming_dates %}
+    <div class="col-6 col-md-3">
+      {% if d in dates_with_slots %}
+      <a href="{% url 'bookings:book_step3_slot' service.id d|date:'Y-m-d' %}" class="btn btn-outline-primary w-100">{{ d|date:"D, M j" }}</a>
+      {% else %}
+      <button class="btn btn-outline-secondary w-100" disabled>{{ d|date:"D, M j" }}<br><small>No slots</small></button>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  <a href="{% url 'bookings:book_step1_service' %}" class="btn btn-link mt-4">&larr; Back to services</a>
+</div>
+{% endblock %}

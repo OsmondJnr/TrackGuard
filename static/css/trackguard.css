@@ -1,0 +1,75 @@
+:root {
+  --tg-navy: #0b2545;
+  --tg-blue: #13315c;
+  --tg-accent: #ffb400;
+  --tg-teal: #1b998b;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+}
+
+main { flex: 1; }
+
+.tg-navbar {
+  background-color: var(--tg-navy);
+}
+
+.tg-footer {
+  background-color: var(--tg-navy);
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--tg-navy) 0%, var(--tg-blue) 60%, var(--tg-teal) 130%);
+  color: #fff;
+  padding: 5rem 0;
+}
+
+.hero h1 {
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.btn-accent {
+  background-color: var(--tg-accent);
+  color: #14213d;
+  font-weight: 600;
+  border: none;
+}
+.btn-accent:hover { background-color: #e6a200; color: #14213d; }
+
+.tg-card {
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 1rem rgba(11, 37, 69, 0.08);
+  transition: transform .15s ease;
+}
+.tg-card:hover { transform: translateY(-3px); }
+
+.stat-card {
+  border-radius: 0.75rem;
+  color: #fff;
+  padding: 1.25rem;
+}
+.stat-card.blue { background-color: var(--tg-blue); }
+.stat-card.teal { background-color: var(--tg-teal); }
+.stat-card.amber { background-color: #c97a1a; }
+.stat-card.gray { background-color: #4a5568; }
+
+.badge-status-pending { background-color: #c97a1a; }
+.badge-status-confirmed { background-color: #1b998b; }
+.badge-status-completed { background-color: #0b2545; }
+.badge-status-cancelled { background-color: #6c757d; }
+.badge-status-rejected { background-color: #b02a37; }
+
+.step-pill {
+  border-radius: 2rem;
+  padding: .35rem 1rem;
+  background-color: #e9ecef;
+  font-weight: 600;
+  font-size: .85rem;
+}
+.step-pill.active { background-color: var(--tg-navy); color: #fff; }

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Customer Details{% endblock %}
+{% block content %}
+<div class="container my-5">
+  <h1 class="fw-bold mb-1">{{ profile.user.get_full_name|default:profile.user.username }}</h1>
+  <p class="text-muted mb-4">{{ profile.user.email }} &middot; {{ profile.phone_number }}</p>
+
+  <h5>Vehicles</h5>
+  <ul class="list-group list-group-flush mb-4">
+    {% for v in vehicles %}
+    <li class="list-group-item">{{ v.make }} {{ v.model }} ({{ v.year }}) &mdash; {{ v.registration_number }}</li>
+    {% empty %}
+    <li class="list-group-item text-muted">No vehicles on file.</li>
+    {% endfor %}
+  </ul>
+
+  <h5>Bookings</h5>
+  <div class="table-responsive">
+    <table class="table table-hover bg-white">
+      <thead><tr><th>Reference</th><th>Service</th><th>Date</th><th>Status</th></tr></thead>
+      <tbody>
+        {% for b in bookings %}
+        <tr>
+          <td><a href="{% url 'bookings:booking_detail' b.pk %}">{{ b.booking_reference }}</a></td>
+          <td>{{ b.service.name }}</td>
+          <td>{{ b.slot.date }}</td>
+          <td><span class="badge badge-status-{{ b.status }}">{{ b.get_status_display }}</span></td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4" class="text-muted">No bookings yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <a href="{% url 'bookings:manage_customers' %}" class="btn btn-outline-secondary">Back to Customers</a>
+</div>
+{% endblock %}
