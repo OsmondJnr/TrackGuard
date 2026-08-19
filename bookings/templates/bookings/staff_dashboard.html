@@ -6,12 +6,12 @@
   <p class="text-muted">Overview of TrackGuard scheduling activity.</p>
 
   <div class="row g-3 my-3">
-    <div class="col-6 col-md-2"><div class="stat-card blue"><div class="fs-4 fw-bold">{{ total_bookings }}</div>Total</div></div>
-    <div class="col-6 col-md-2"><div class="stat-card amber"><div class="fs-4 fw-bold">{{ pending_count }}</div>Pending</div></div>
-    <div class="col-6 col-md-2"><div class="stat-card teal"><div class="fs-4 fw-bold">{{ confirmed_count }}</div>Confirmed</div></div>
-    <div class="col-6 col-md-2"><div class="stat-card gray"><div class="fs-4 fw-bold">{{ completed_count }}</div>Completed</div></div>
-    <div class="col-6 col-md-2"><div class="stat-card gray"><div class="fs-4 fw-bold">{{ cancelled_count }}</div>Cancelled/Rejected</div></div>
-    <div class="col-6 col-md-2"><div class="stat-card blue"><div class="fs-4 fw-bold">{{ total_customers }}</div>Customers</div></div>
+    <div class="col-6 col-md-2"><div class="stat-card blue"><i class="bi bi-calendar2-check fs-5"></i><div class="fs-4 fw-bold">{{ total_bookings }}</div><span>Total</span></div></div>
+    <div class="col-6 col-md-2"><div class="stat-card amber"><i class="bi bi-hourglass-split fs-5"></i><div class="fs-4 fw-bold">{{ pending_count }}</div><span>Pending</span></div></div>
+    <div class="col-6 col-md-2"><div class="stat-card teal"><i class="bi bi-check-circle fs-5"></i><div class="fs-4 fw-bold">{{ confirmed_count }}</div><span>Confirmed</span></div></div>
+    <div class="col-6 col-md-2"><div class="stat-card gray"><i class="bi bi-check2-all fs-5"></i><div class="fs-4 fw-bold">{{ completed_count }}</div><span>Completed</span></div></div>
+    <div class="col-6 col-md-2"><div class="stat-card gray"><i class="bi bi-x-circle fs-5"></i><div class="fs-4 fw-bold">{{ cancelled_count }}</div><span>Cancelled/Rejected</span></div></div>
+    <div class="col-6 col-md-2"><div class="stat-card blue"><i class="bi bi-people fs-5"></i><div class="fs-4 fw-bold">{{ total_customers }}</div><span>Customers</span></div></div>
   </div>
 
   <div class="d-flex flex-wrap gap-2 my-4">
@@ -37,7 +37,7 @@
           <td><a href="{% url 'bookings:booking_detail' b.pk %}" class="btn btn-sm btn-outline-primary">View</a></td>
         </tr>
         {% empty %}
-        <tr><td colspan="6" class="text-muted">No bookings yet.</td></tr>
+        <tr><td colspan="6" class="text-muted"><i class="bi bi-inbox me-2"></i>No bookings yet. New customer appointments will appear here.</td></tr>
         {% endfor %}
       </tbody>
     </table>

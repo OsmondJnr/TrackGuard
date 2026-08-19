@@ -5,6 +5,7 @@
   <div class="container text-center">
     <h1 class="display-4">Secure Your Vehicle. Track Your Journey.</h1>
     <p class="lead mt-3">Book professional GPS tracker installation in minutes. TrackGuard keeps your vehicle protected and always within reach.</p>
+    <p class="small text-white-50 mb-0 mt-3">Clear pricing, verified installation slots, and a booking reference you can keep.</p>
     <a href="{% url 'bookings:book_step1_service' %}" class="btn btn-accent btn-lg mt-3 px-4">Book Installation</a>
     <a href="{% url 'bookings:service_list' %}" class="btn btn-outline-light btn-lg mt-3 px-4 ms-2">View Services</a>
   </div>
@@ -19,6 +20,10 @@
           <i class="bi bi-clock-history fs-1 text-primary"></i>
           <h5 class="mt-3">Flexible Scheduling</h5>
           <p class="text-muted">Pick a date and time slot that works for you — book online in under two minutes.</p>
+          <ul class="list-unstyled small text-muted mb-0">
+            <li><i class="bi bi-check2 text-success me-1"></i>Choose from available appointments</li>
+            <li><i class="bi bi-check2 text-success me-1"></i>Receive confirmation instantly</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -28,6 +33,10 @@
           <i class="bi bi-tools fs-1 text-primary"></i>
           <h5 class="mt-3">Certified Technicians</h5>
           <p class="text-muted">Every installation is performed by trained, certified GPS tracking specialists.</p>
+          <ul class="list-unstyled small text-muted mb-0">
+            <li><i class="bi bi-check2 text-success me-1"></i>Careful, vehicle-specific fitting</li>
+            <li><i class="bi bi-check2 text-success me-1"></i>Professional installation support</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -37,9 +46,58 @@
           <i class="bi bi-shield-check fs-1 text-primary"></i>
           <h5 class="mt-3">Real-Time Confirmation</h5>
           <p class="text-muted">Get an instant booking reference and track the status of your appointment online.</p>
+          <ul class="list-unstyled small text-muted mb-0">
+            <li><i class="bi bi-check2 text-success me-1"></i>Review appointment details anytime</li>
+            <li><i class="bi bi-check2 text-success me-1"></i>Stay informed from booking to fitting</li>
+          </ul>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="container my-5">
+  <div class="text-center mb-4">
+    <span class="step-pill active">Simple from start to finish</span>
+    <h2 class="fw-bold mt-3">How TrackGuard Works</h2>
+  </div>
+  <div class="row g-4 text-center">
+    <div class="col-md-3">
+      <div class="card tg-card h-100 p-3">
+        <i class="bi bi-person-plus fs-2 text-primary"></i>
+        <h5 class="mt-3">1. Create your account</h5>
+        <p class="small text-muted mb-0">Keep your vehicle details and bookings together.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card tg-card h-100 p-3">
+        <i class="bi bi-ui-checks-grid fs-2 text-primary"></i>
+        <h5 class="mt-3">2. Select a service</h5>
+        <p class="small text-muted mb-0">Compare installation options and transparent pricing.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card tg-card h-100 p-3">
+        <i class="bi bi-calendar-check fs-2 text-primary"></i>
+        <h5 class="mt-3">3. Pick a time</h5>
+        <p class="small text-muted mb-0">Choose an available date and appointment slot.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card tg-card h-100 p-3">
+        <i class="bi bi-shield-check fs-2 text-primary"></i>
+        <h5 class="mt-3">4. Drive protected</h5>
+        <p class="small text-muted mb-0">Bring your vehicle in and leave with confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container my-5">
+  <div class="row g-3 text-center">
+    <div class="col-md-4"><div class="stat-card blue"><i class="bi bi-calendar2-check fs-3"></i><h4 class="mt-2 mb-1">Easy booking</h4><p class="small mb-0">Schedule in just a few guided steps.</p></div></div>
+    <div class="col-md-4"><div class="stat-card teal"><i class="bi bi-tools fs-3"></i><h4 class="mt-2 mb-1">Professional fitting</h4><p class="small mb-0">Installation support from trained technicians.</p></div></div>
+    <div class="col-md-4"><div class="stat-card amber"><i class="bi bi-bell fs-3"></i><h4 class="mt-2 mb-1">Clear updates</h4><p class="small mb-0">Know what is happening with your appointment.</p></div></div>
   </div>
 </section>
 
