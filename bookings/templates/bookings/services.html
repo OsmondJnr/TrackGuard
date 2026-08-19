@@ -3,38 +3,12 @@
 {% block content %}
 <div class="container my-5">
   <h1 class="fw-bold mb-4 text-center">Our Installation Services</h1>
-  <p class="text-muted text-center mb-5">Choose the installation option that fits your vehicle, schedule, and security needs.</p>
-  <div class="row g-4">
-    {% for service in services %}
-    <div class="col-md-4">
-      <div class="card tg-card h-100">
-        <div class="card-body d-flex flex-column">
-          <div class="mb-3">
-            <i class="bi bi-shield-check fs-2 text-primary"></i>
-            <span class="badge bg-light text-dark ms-2">Professional installation</span>
-          </div>
-          <h5 class="card-title">{{ service.name }}</h5>
-          <p class="card-text text-muted flex-grow-1">{{ service.description }}</p>
-          <ul class="list-unstyled small text-muted mb-3">
-            <li><i class="bi bi-check2 text-success me-1"></i>Vehicle-specific installation guidance</li>
-            <li><i class="bi bi-check2 text-success me-1"></i>Booking confirmation and status updates</li>
-            <li><i class="bi bi-check2 text-success me-1"></i>Clear service duration and pricing</li>
-          </ul>
-          <p class="mb-1"><strong>Price:</strong> ₦{{ service.price }}</p>
-          <p class="mb-3"><strong>Duration:</strong> {{ service.estimated_duration_minutes }} minutes</p>
-          <a href="{% url 'bookings:book_step1_service' %}" class="btn btn-accent mt-auto">Book This Service</a>
-        </div>
-      </div>
-    </div>
-    {% empty %}
-    <p class="text-muted text-center">No services are currently available. Please check back soon.</p>
-    {% endfor %}
-  </div>
-
+  
   <section class="mt-5 pt-2">
     <div class="text-center mb-4">
       <span class="step-pill active">Coverage for every journey</span>
       <h2 class="fw-bold mt-3">Vehicles We Help Keep Track Of</h2>
+      <p class="text-muted text-center mb-5">We offer the installation option that fits your vehicle, schedule, and security needs.</p>
       <p class="text-muted mb-0">TrackGuard installation is suitable for personal, commercial, and fleet vehicles.</p>
     </div>
     <div class="row g-4">
